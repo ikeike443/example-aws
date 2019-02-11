@@ -66,7 +66,7 @@ action "Configure Kube Credentials" {
   needs = ["Login to ECR"]
   uses = "actions/aws/cli@master"
   env = {
-    CLUSTER_NAME = "devel2"
+    CLUSTER_NAME = "ikeike443-cluster-2"
     AWS_DEFAULT_REGION = "us-west-2"
   }
   secrets = ["AWS_ACCESS_KEY_ID", "AWS_SECRET_ACCESS_KEY"]
