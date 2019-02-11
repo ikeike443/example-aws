@@ -11,7 +11,7 @@ COPY "entrypoint.sh" "/entrypoint.sh"
 RUN kubeadm init
 COPY "/etc/kubernetes/admin.conf" "/admin.conf"
 RUN chown $(id -u):$(id -g) /admin.conf
-RUN export KUBECONFIG=/admin.conf
+ENV KUBECONFIG="/admin.conf"
 RUN chmod +x /entrypoint.sh
 
 ENTRYPOINT ["/entrypoint.sh"]
