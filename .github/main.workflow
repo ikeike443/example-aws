@@ -75,8 +75,7 @@ action "Configure Kube Credentials" {
 
 # Example Local Action to use `aws-iam-authenticator`
 action "Deploy to EKS" {
-  needs = ["Store Kube Credentials", "Deploy branch filter"]
-  # ["Configure Kube Credentials"]
+  needs = ["Store Kube Credentials", "Deploy branch filter", "Configure Kube Credentials"]
   uses = "./.github/actions/eks-kubectl"
   runs = "sh -l -c"
   args = ["SHORT_REF=$(echo $GITHUB_SHA | head -c7) && cat $GITHUB_WORKSPACE/config.yml | sed 's/TAG/'\"$SHORT_REF\"'/' | kubectl apply -f - "]
