@@ -41,17 +41,25 @@
      ~~~~~~==~==~~~==~==~~~~~~
       ~~~~~~==~==~==~==~~~~~~
           :~==~==~==~==~~
-          
-                              (`-.      ('-.                             .-') _    ('-. .-.            .-. .-')   
-                           _(OO  )_  _(  OO)                           (  OO) )  ( OO )  /            \  ( OO )  
- ,--.      .-'),-----. ,--(_/   ,. \(,------.        ,----.     ,-.-') /     '._ ,--. ,--. ,--. ,--.   ;-----.\  
- |  |.-') ( OO'  .-.  '\   \   /(__/ |  .---'       '  .-./-')  |  |OO)|'--...__)|  | |  | |  | |  |   | .-.  |  
- |  | OO )/   |  | |  | \   \ /   /  |  |           |  |_( O- ) |  |  \'--.  .--'|   .|  | |  | | .-') | '-' /_) 
- |  |`-' |\_) |  |\|  |  \   '   /, (|  '--.        |  | .--, \ |  |(_/   |  |   |       | |  |_|( OO )| .-. `.  
-(|  '---.'  \ |  | |  |   \     /__) |  .--'       (|  | '. (_/,|  |_.'   |  |   |  .-.  | |  | | `-' /| |  \  | 
- |      |    `'  '-'  '    \   /     |  `---.       |  '--'  |(_|  |      |  |   |  | |  |('  '-'(_.-' | '--'  / 
- `------'      `-----'      `-'      `------'        `------'   `--'      `--'   `--' `--'  `-----'    `------'  
+
     </pre>
+    <script>
+        // GET /zen
+        (function () {
+            document.addEventListener("DOMContentLoaded", function (event) {
+                req = new XMLHttpRequest();
+
+                req.onreadystatechange = function process() {
+                    if (req.readyState === XMLHttpRequest.DONE && req.status === 200) {
+                        document.getElementById("content").innerText = req.responseText;
+                    }
+                };
+
+                req.open("GET", "https://api.github.com/octocat", true);
+                req.send();
+            });
+        })();
+    </script>
 
 </body>
 
