@@ -9,7 +9,7 @@ RUN apt-get update -y && \
 COPY "entrypoint.sh" "/entrypoint.sh"
 RUN chmod +x /entrypoint.sh
 
-ENV KUBERNETES_MASTER=10.100.0.1:8080
+ENV KUBERNETES_MASTER=10.100.0.1
 
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["help"]
