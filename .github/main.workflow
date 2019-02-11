@@ -33,7 +33,7 @@ action "Tag image for ECR" {
   uses = "actions/docker/tag@master"
   env = {
     IMAGE_NAME = "aws-example"
-    CONTAINER_REGISTRY_PATH = "377117578606.dkr.ecr.us-west-2.amazonaws.com/ikeike443/cluster-2"
+    CONTAINER_REGISTRY_PATH = "377117578606.dkr.ecr.us-west-2.amazonaws.com"
 
     # Build
 
@@ -47,7 +47,7 @@ action "Push image to ECR" {
   uses = "actions/docker/cli@master"
   env = {
     IMAGE_NAME = "aws-example"
-    CONTAINER_REGISTRY_PATH = "377117578606.dkr.ecr.us-west-2.amazonaws.com/ikeike443/cluster-2"
+    CONTAINER_REGISTRY_PATH = "377117578606.dkr.ecr.us-west-2.amazonaws.com"
 
     # Build
 
