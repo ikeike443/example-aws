@@ -7,7 +7,6 @@ RUN apt-get update -y && \
     rm -rf /var/lib/apt/lists/*
 
 COPY "entrypoint.sh" "/entrypoint.sh"
-RUN kubeadm init
 COPY "/etc/kubernetes/admin.conf" "/admin.conf"
 RUN chown $(id -u):$(id -g) /admin.conf
 ENV KUBECONFIG="/admin.conf"
