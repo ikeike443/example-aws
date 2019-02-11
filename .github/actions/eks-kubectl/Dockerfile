@@ -7,10 +7,9 @@ RUN apt-get update -y && \
     rm -rf /var/lib/apt/lists/*
 
 COPY "entrypoint.sh" "/entrypoint.sh"
-COPY "/etc/kubernetes/admin.conf" "/admin.conf"
-RUN chown $(id -u):$(id -g) /admin.conf
-ENV KUBECONFIG="/admin.conf"
 RUN chmod +x /entrypoint.sh
+
+ENV KUBERNETES_MASTER=http://10.100.0.1:8080
 
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["help"]
